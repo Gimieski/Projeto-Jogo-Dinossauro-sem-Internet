@@ -1,0 +1,43 @@
+.dino{
+    width:60px;
+    height: 60px;
+    position:absolute;
+    bottom: 0px;
+    background-image: url(Imagens/dino.png);
+}
+
+.cactus{
+    position: absolute;
+    width:60px;
+    height: 60px;
+    bottom:0;
+    background-image: url(Imagens/cactus.png);
+
+}
+
+.gm{
+  text-align: center;
+  font-size: 50px;
+  color:#666666;
+  margin-top: 50px;
+  font-family: sans-serif,Arial, Helvetica;
+}
+
+@keyframes animar{
+    from{
+       background-position:70000%
+    }
+    to{
+        background-position: 0%;
+    }
+}
+
+.background{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 300px;
+    background-image: url(Imagens/background.png);
+    background-repeat: repeat-x;
+    animation:animar 1200s infinite linear ;
+}
