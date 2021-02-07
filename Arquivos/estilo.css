@@ -1,15 +1,75 @@
+.conteiner{
+    width: 800px;
+    height: 210px;
+    border:1px solid black;
+    margin:auto;
+    margin-top: 20px;
+    position: relative;
+}
+
 .dino{
     width:60px;
     height: 60px;
-    position:absolute;
-    bottom: 0px;
+    position: relative;
     background-image: url(Imagens/dino.png);
+    margin-left: 40px;
+    top:150px;
+}
+
+@keyframes animar{
+    from{
+       background-position:70000%
+    }
+    to{
+        background-position: 0%;
+    }
+}
+
+@keyframes dino{
+    0%{
+        top:150px;
+    }
+
+    30%{
+        top:130px;
+
+    }
+    50%{
+        top:80px;
+    }
+
+    70%{
+        top:50px;
+    }
+
+    80%{
+        top:80px;
+    }
+    90%{
+        top:130px;
+    }
+    100%{
+        top:150px;
+    }
+}
+
+.animando{
+    animation: dino 0.4s linear 1;
+}
+
+.background{
+    position: absolute;
+    width: 100%;
+    height: 220px;
+    background-image: url(Imagens/background.png);
+    background-repeat: repeat-x;
+    animation:animar 1200s infinite linear ;
 }
 
 .cactus{
     position: absolute;
     width:60px;
-    height: 60px;
+    height: 50px;
     bottom:0;
     background-image: url(Imagens/cactus.png);
 
@@ -23,21 +83,3 @@
   font-family: sans-serif,Arial, Helvetica;
 }
 
-@keyframes animar{
-    from{
-       background-position:70000%
-    }
-    to{
-        background-position: 0%;
-    }
-}
-
-.background{
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 300px;
-    background-image: url(Imagens/background.png);
-    background-repeat: repeat-x;
-    animation:animar 1200s infinite linear ;
-}

@@ -11,8 +11,61 @@
     <div class="background"></div>
     <div class="dino"></div>
 
+    <script>
+        const dino=document.querySelector(".dino");
+        const background=document.querySelector(".background");
+        let isJump=false;
+  
+        function jump(){
+            isJump=true;
+            dino.classList.add("animando");
+  
+            setTimeout(function(){
+              dino.classList.remove("animando");
+              isJump=false;
+            },400)
+        }
+        document.addEventListener("keydown",function(event){
+            var teclas=(event.keyCode);
+            if(event.keyCode===32 && !isJump){
+              jump();
+            }
+        })
 
 
-    <script src="script.js"></script>
+
+    function createCacto(){
+    const cacto=document.createElement('div');
+    cacto.classList.add('cactus')
+    let cactosPosition=1000;
+    cacto.style.left=cactosPosition+"px"
+    background.appendChild(cacto);
+    let randomTIme=Math.random()*6000;
+
+    
+    let leftInterval=setInterval(()=>{
+        if(cactosPosition < -60){
+            // menor que 60px
+            clearInterval(leftInterval);
+            background.removeChild(cacto);
+        }else if(cactosPosition >0 && cactosPosition < 60 && !isJump){
+            /*se a posição do cactosPosition for maior que zero(ele ainda ta na tela),for menor
+             que 60(ou seja não passou do dino ainda, que ocupa os 60px da tela e a posição do 
+            dino for menor que 60(ele não pulou ainda), game over */
+            clearInterval(leftInterval);
+            document.body.innerHTML="<h1 class=gm>Fim de jogo</h1>"        
+        }else{
+            cactosPosition -=10;
+            cacto.style.left=cactosPosition+"px";
+        }
+    },20);
+
+    setTimeout(createCacto, randomTIme);
+}
+
+createCacto()
+  
+      
+      </script>
 </body>
 </html>
